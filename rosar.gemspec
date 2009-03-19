@@ -18,4 +18,5 @@ spec = Gem::Specification.new do |s|
   s.rdoc_options = ["--main", "README"]
   s.has_rdoc = true
   s.extra_rdoc_files = ["README"]
+  s.add_dependency ['rbosa']
 end
