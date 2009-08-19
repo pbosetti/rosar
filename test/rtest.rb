@@ -4,7 +4,7 @@
 # Copyright (c) 2008 University of Trento. All rights 
 # reserved.
 
-require 'rosar'
+require '../lib/rosar'
 
 r = ROSAR.instance
 

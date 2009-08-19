@@ -58,7 +58,7 @@ end
 =end
 class ROSAR
   include Singleton
-  FIFO = "data.fifo"
+  FIFO = "rosar.fifo"
   attr_reader :r, :console
   
   def initialize(r="R")
