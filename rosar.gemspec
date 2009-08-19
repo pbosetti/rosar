@@ -24,11 +24,11 @@ Gem::Specification.new do |s|
     s.specification_version = 2
 
     if Gem::Version.new(Gem::RubyGemsVersion) >= Gem::Version.new('1.2.0') then
-      s.add_runtime_dependency(%q<rubybosa>, [">= 0.4.0"])
+      s.add_runtime_dependency(%q<sstephenson-rubyosa>, [">= 0.4.0"])
     else
-      s.add_dependency(%q<rubyosa>, [">= 0.4.0"])
+      s.add_dependency(%q<sstephenson-rubyosa>, [">= 0.4.0"])
     end
   else
-    s.add_dependency(%q<rubyosa>, [">= 0.4.0"])
+    s.add_dependency(%q<sstephenson-rubyosa>, [">= 0.4.0"])
   end
 end
