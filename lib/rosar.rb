@@ -102,7 +102,7 @@ class ROSAR
   to move values around.
 =end
   def data_frame(name, df)
-    Thread.new do
+    r_thread = Thread.new do
       @r.cmd "#{name}<-read.table('#{FIFO}', h=T)"
     end
 
@@ -115,6 +115,8 @@ class ROSAR
         f.puts
       end
     end
+    r_thread.join
+    File.delete FIFO
   end
   
 =begin rdoc
