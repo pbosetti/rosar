@@ -7,7 +7,6 @@
 require '../lib/rosar'
 
 r = ROSAR.instance
-
 df = {
   :x => (0..4).to_a,
   :y => [7,2,5.5,8,9,10]

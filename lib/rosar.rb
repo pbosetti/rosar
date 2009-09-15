@@ -61,15 +61,22 @@ class ROSAR
   FIFO = "rosar.fifo"
   attr_reader :r, :console
   
-  def initialize(hide=true, r="R")
+  def initialize(r="R")
     @r = OSA.app r
     self.sync_dir
     self.activate
     @console = @r.windows.select {|w| w.name =="R Console"}[0]
-    @console.miniaturized = true if hide
     unless FileTest.exists?(FIFO) || FileTest.pipe?(FIFO)
       `mkfifo #{FIFO}` # something nicer has to be done...
     end
+  end
+  
+  def minimize
+    @console.miniaturized = true
+  end
+  
+  def maximize
+    @console.miniaturized = false
   end
   
 =begin rdoc
