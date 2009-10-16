@@ -4,9 +4,23 @@ RosaR
 Ruby/OSA to Gnu-R interface, useful to plot and analyze data from within ruby.
 It relies on AppleScript, so only works on Apple OS X (Snow Leopard tested).
 
-If you have troubles with ruby-osa, install my rubyosa gem:
+Installation
+============
+RosaR gem has moved to [Gemcutter](http://gemcutter.org). In order to install you have two **alternative** choices:
 
-	sudo gem install pbosetti-rubyosa
+1. Simply add the Gemcutter repo to your rubygem source list:
+
+        gem sources -a http://gemcutter.org
+
+2. Install gemcutter:
+
+        sudo gem install gemcutter
+        sudo gem tumble
+    
+Next, simply install the gem:
+
+    sudo gem install rosar
+    
 
 Example
 =======
