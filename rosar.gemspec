@@ -2,12 +2,12 @@
 
 Gem::Specification.new do |s|
   s.name = %q{rosar}
-  s.version = "0.0.8"
+  s.version = "0.1.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Paolo Bosetti"]
-  s.date = %q{2009-09-15}
-  s.description = %q{Ruby/GNU-R interface that uses OSA under OS X.}
+  s.date = %q{2012-04-18}
+  s.description = %q{Ruby/GNU-R interface that uses OSA under OS X, compatible with Ruby 1.9.x.}
   s.email = %q{paolo.bosetti@me.com}
   s.files = %w[README.markdown lib/rosar.rb test/rtest.rb]
   s.has_rdoc = true
@@ -24,11 +24,11 @@ Gem::Specification.new do |s|
     s.specification_version = 2
 
     if Gem::Version.new(Gem::RubyGemsVersion) >= Gem::Version.new('1.2.0') then
-      s.add_runtime_dependency(%q<pbosetti-rubyosa>, [">= 0.4.0"])
+      s.add_runtime_dependency(%q<rubyosa19>, [">= 0.5.0"])
     else
-      s.add_dependency(%q<pbosetti-rubyosa>, [">= 0.4.0"])
+      s.add_dependency(%q<rubyosa19>, [">= 0.5.0"])
     end
   else
-    s.add_dependency(%q<pbosetti-rubyosa>, [">= 0.4.0"])
+    s.add_dependency(%q<rubyosa19>, [">= 0.5.0"])
   end
 end

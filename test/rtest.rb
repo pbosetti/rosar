@@ -1,4 +1,4 @@
-#!/usr/bin/env ruby
+##!/usr/bin/env ruby
 #
 # Created by Paolo Bosetti on 2008-05-27.
 # Copyright (c) 2008 University of Trento. All rights 
@@ -7,10 +7,7 @@
 require '../lib/rosar'
 
 r = ROSAR.instance
-df = {
-  :x => (0..4).to_a,
-  :y => [7,2,5.5,8,9,10]
-}
+df = {:x => (0..4).to_a,:y => [7,2,5.5,8,9,10]}
 cols = %w(red green blue darkred darkgreen darkblue)
 r.transfer :p=>(0...100).to_a
 r.plot :x=>:p, :y=>"p^2", :typ=>"'l'"

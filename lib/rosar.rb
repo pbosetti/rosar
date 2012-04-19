@@ -5,8 +5,7 @@
 # reserved.
 require 'singleton'
 require 'rubygems'
-require 'rbosa'
-
+require "rubyosa"
 
 =begin rdoc
   Adds a to_r method to standara Arrays, which returns a String representation
@@ -58,17 +57,14 @@ end
 =end
 class ROSAR
   include Singleton
-  FIFO = "rosar.fifo"
+  EXCHANGE = "rosar.exc"
   attr_reader :r, :console
   
-  def initialize(r="R")
+  def initialize(r="R64")
     @r = OSA.app r
     self.sync_dir
     self.activate
-    @console = @r.windows.select {|w| w.name =="R Console"}[0]
-    unless FileTest.exists?(FIFO) || FileTest.pipe?(FIFO)
-      `mkfifo #{FIFO}` # something nicer has to be done...
-    end
+    # @console = @r.windows.select {|w| w.name =="R Console"}[0]
   end
   
   def minimize
@@ -108,12 +104,8 @@ class ROSAR
   Transfers the Hash of Arrays +df+ to a dataframe named +name+. Uses a FIFO
   to move values around.
 =end
-  def data_frame(name, df)
-    r_thread = Thread.new do
-      @r.cmd "#{name}<-read.table('#{FIFO}', h=T)"
-    end
-
-    File.open("#{FIFO}", "w") do |f|
+  def data_frame(name, df, keep=false)
+    File.open("#{EXCHANGE}", "w") do |f|
       f.puts df.keys*"\t"
       df[df.keys[0]].size.times do |i|
         df.each_key do |k|
@@ -122,8 +114,8 @@ class ROSAR
         f.puts
       end
     end
-    r_thread.join
-    File.delete FIFO
+    @r.cmd "#{name}<-read.table('#{EXCHANGE}', h=T)"
+    @r.cmd "unlink(\"#{EXCHANGE}\")" unless keep
   end
   
 =begin rdoc
