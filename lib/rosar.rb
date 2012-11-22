@@ -118,6 +118,10 @@ class ROSAR
     @r.cmd "unlink(\"#{EXCHANGE}\")" unless keep
   end
   
+  def raw(cmd)
+    @r.cmd(cmd)
+  end
+  
 =begin rdoc
   Redirects +method+ to the underlaying OSA object.
 =end
