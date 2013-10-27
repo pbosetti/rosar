@@ -60,8 +60,21 @@ class ROSAR
   EXCHANGE = "rosar.exc"
   attr_reader :r, :console
   
-  def initialize(r="R64")
-    @r = OSA.app r
+  @@r = "" # command line to launch R
+  def self.r= r_com
+    @@r = r_com
+  end
+  
+  def initialize(r="R")
+    
+    r = @@r || r
+    begin
+      @r = OSA.app r
+    rescue
+      raise "Specify a valid command line to launch R-lang"
+      exit
+    end
+    
     self.sync_dir
     self.activate
     # @console = @r.windows.select {|w| w.name =="R Console"}[0]
