@@ -67,7 +67,7 @@ class ROSAR
   
   def initialize(r="R")
     
-    r = @@r || r
+    r = @@r unless @@r.empty?
     begin
       @r = OSA.app r
     rescue
