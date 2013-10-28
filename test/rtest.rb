@@ -5,7 +5,7 @@
 # reserved.
 
 require '../lib/rosar'
-
+ROSAR.r = "R"
 r = ROSAR.instance
 df = {:x => (0..4).to_a,:y => [7,2,5.5,8,9,10]}
 cols = %w(red green blue darkred darkgreen darkblue)
